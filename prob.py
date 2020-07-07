@@ -902,3 +902,4 @@ def showinfo():  # mostrar jogadores e campeoes
           txt_adc_red_champion_store_text_r, )
     print(txt_sup_red_nick_store_text_r, "-",
           txt_sup_red_champion_store_text_r, )
+#test
