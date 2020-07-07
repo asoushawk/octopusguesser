@@ -304,13 +304,91 @@ mid_blue_champion_kda = driver.find_element_by_xpath('//*[@id="liveContent"]/div
 adc_blue_champion_kda = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/ul[1]/li[4]/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[1]')
 sup_blue_champion_kda = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/ul[1]/li[5]/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[1]')
 
+#STORE KDA
 
-# Kda do cara com o campeão - Time Vermelho:
+#TOPBLUE
+txt_top_blue_champion_kda = open("top_blue_champion_kda.txt", "w")
+txt_top_blue_champion_kda.write(top_blue_champion_kda.text)
+txt_top_blue_champion_kda.close()
+txt_top_blue_champion_kda_r = open("top_blue_champion_kda.txt", "r")
+txt_top_blue_champion_kda_r_text = txt_top_blue_champion_kda_r.read()
+
+#JGBLUE
+txt_jg_blue_champion_kda = open("jg_blue_champion_kda.txt", "w")
+txt_jg_blue_champion_kda.write(jg_blue_champion_kda.text)
+txt_jg_blue_champion_kda.close()
+txt_jg_blue_champion_kda_r = open("jg_blue_champion_kda.txt", "r")
+txt_jg_blue_champion_kda_r_text = txt_jg_blue_champion_kda_r.read()
+
+#MIDBLUE
+txt_mid_blue_champion_kda = open("mid_blue_champion_kda.txt", "w")
+txt_mid_blue_champion_kda.write(mid_blue_champion_kda.text)
+txt_mid_blue_champion_kda.close()
+txt_mid_blue_champion_kda_r = open("mid_blue_champion_kda.txt", "r")
+txt_mid_blue_champion_kda_r_text = txt_mid_blue_champion_kda_r.read()
+
+#ADCBLUE
+
+txt_adc_blue_champion_kda = open("adc_blue_champion_kda.txt", "w")
+txt_adc_blue_champion_kda.write(adc_blue_champion_kda.text)
+txt_adc_blue_champion_kda.close()
+txt_adc_blue_champion_kda_r = open("adc_blue_champion_kda.txt", "r")
+txt_adc_blue_champion_kda_r_text = txt_adc_blue_champion_kda_r.read()
+
+
+#supBLUE
+txt_sup_blue_champion_kda = open("sup_blue_champion_kda.txt", "w")
+txt_sup_blue_champion_kda.write(sup_blue_champion_kda.text)
+txt_sup_blue_champion_kda.close()
+txt_sup_blue_champion_kda_r = open("sup_blue_champion_kda.txt", "r")
+txt_sup_blue_champion_kda_r_text = txt_sup_blue_champion_kda_r.read()
+
+
+# Kda do cara com o campeão - Time Vermelho: 
 top_red_champion_kda = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/ul[2]/li[1]/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[1]')
 jg_red_champion_kda = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/ul[2]/li[2]/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[1]')
 mid_red_champion_kda = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/ul[2]/li[3]/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[1]')
 adc_red_champion_kda = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/ul[2]/li[4]/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[1]')
 sup_red_champion_kda = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/ul[2]/li[5]/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[1]')
+
+#STORE KDA
+
+#TOPRED
+txt_top_red_champion_kda = open("top_red_champion_kda.txt", "w")
+txt_top_red_champion_kda.write(top_red_champion_kda.text)
+txt_top_red_champion_kda.close()
+txt_top_red_champion_kda_r = open("top_red_champion_kda.txt", "r")
+txt_top_red_champion_kda_r_text = txt_top_red_champion_kda_r.read()
+
+#JGBLUE
+txt_jg_red_champion_kda = open("jg_blue_champion_kda.txt", "w")
+txt_jg_red_champion_kda.write(jg_red_champion_kda.text)
+txt_jg_red_champion_kda.close()
+txt_jg_red_champion_kda_r = open("jg_red_champion_kda.txt", "r")
+txt_jg_red_champion_kda_r_text = txt_jg_red_champion_kda_r.read()
+
+#MIDRED
+txt_mid_red_champion_kda = open("mid_red_champion_kda.txt", "w")
+txt_mid_red_champion_kda.write(mid_red_champion_kda.text)
+txt_mid_red_champion_kda.close()
+txt_mid_red_champion_kda_r = open("mid_red_champion_kda.txt", "r")
+txt_mid_red_champion_kda_r_text = txt_mid_red_champion_kda_r.read()
+
+#ADCRED
+
+txt_adc_red_champion_kda = open("adc_red_champion_kda.txt", "w")
+txt_adc_red_champion_kda.write(adc_red_champion_kda.text)
+txt_adc_red_champion_kda.close()
+txt_adc_red_champion_kda_r = open("adc_red_champion_kda.txt", "r")
+txt_adc_red_champion_kda_r_text = txt_adc_red_champion_kda_r.read()
+
+
+#supRED
+txt_sup_red_champion_kda = open("sup_red_champion_kda.txt", "w")
+txt_sup_red_champion_kda.write(sup_red_champion_kda.text)
+txt_sup_red_champion_kda.close()
+txt_sup_red_champion_kda_r = open("sup_red_champion_kda.txt", "r")
+txt_sup_red_champion_kda_r_text = txt_sup_red_champion_kda_r.read()
 
 # Main lane - Time azul:
 top_blue_mainrole = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/ul[1]/li[1]/div/div[2]/div[3]/div[1]/div[2]/div[2]/span')
@@ -322,7 +400,7 @@ sup_blue_mainrole = driver.find_element_by_xpath('//*[@id="liveContent"]/div[1]/
 
 #identificação de jogador para coleta de infomações dos ultimos 30 dias com o campeao:
 
-#ir para a pagina do perfil do TOP
+#ir para a pagina do perfil do TOPBLUE
 
 leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
 
@@ -330,6 +408,7 @@ top_lane = "/top"# aqui estão identificadas as lanes
 top_blue_leaguegraph_profile = leaguegraph_main_profile_stats + top_blue_champion.lower() + "/" + "br/" + top_blue_nick.text + top_lane
 driver.get(top_blue_leaguegraph_profile)
 time.sleep(5)
+print("Coletando informações de", top_blue_nick.text)
 #script de coleta de informações jogador, indentificação de elemento + store:
 #coleta games jogados no mês com o campeao:
 player_gamesjogados_month = driver.find_element_by_xpath('//*[@id="graphDD54"]')
@@ -338,6 +417,7 @@ txt_top_blue_gamesjogados_month.write(player_gamesjogados_month.text)
 txt_top_blue_gamesjogados_month.close()
 txt_top_blue_gamesjogados_month_r = open("top_blue_gamesjogados_month.txt", "r")
 txt_top_blue_gamesjogados_month_text_r = txt_top_blue_gamesjogados_month_r.read()
+print(txt_top_blue_gamesjogados_month_text_r)
 
 #coleta porcentagem de vitoria no mês com campeão
 player_wr_champion_month = driver.find_element_by_xpath('//*[@id="graphDD55"]')
@@ -346,6 +426,7 @@ txt_top_blue_wr_champion_month.write(player_wr_champion_month.text)
 txt_top_blue_wr_champion_month.close()
 txt_top_blue_wr_champion_month_r = open("txt_top_blue_wr_champion_month.txt", "r")
 txt_top_blue_wr_champion_month_text_r = txt_top_blue_wr_champion_month_r.read()
+print(txt_top_blue_wr_champion_month_text_r)
 
 #taxa de vitórias em lutas em equipe mes:
 
@@ -355,6 +436,7 @@ txt_top_blue_tfwr_champion_month.write(player_tfwr_champion_month.text)
 txt_top_blue_tfwr_champion_month.close()
 txt_top_blue_tfwr_champion_month_r = open("txt_top_blue_tfwr_champion_month.txt", "r")
 txt_top_blue_tfwr_champion_month_text_r = txt_top_blue_tfwr_champion_month_r.read()
+print(txt_top_blue_tfwr_champion_month_text_r)
 
 #taxa de vitoria em 1v1:
 
@@ -364,7 +446,7 @@ txt_top_blue_1v1wr_champion_month.write(player_1v1wr_champion_month.text)
 txt_top_blue_1v1wr_champion_month.close()
 txt_top_blue_1v1wr_champion_month_r = open("txt_top_blue_1v1wr_champion_month.txt", "r")
 txt_top_blue_1v1wr_champion_month_r_text = txt_top_blue_1v1wr_champion_month_r.read()
-
+print(txt_top_blue_1v1wr_champion_month_r_text)
 #taxa de participação nas lutas:
 
 player_tfp_champion_month = driver.find_element_by_xpath('//*[@id="graphDD26"]')
@@ -373,6 +455,64 @@ txt_top_blue_tfp_champion_month.write(player_tfp_champion_month.text)
 txt_top_blue_tfp_champion_month.close()
 txt_top_blue_tfp_champion_month_r = open("txt_top_blue_tfp_champion_month.txt", "r")
 txt_top_blue_tfp_champion_month_r_text = txt_top_blue_tfp_champion_month_r.read()
+print(txt_top_blue_tfp_champion_month_r_text)
+
+
+#ir para a pagina do perfil do JG Blue
+
+leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
+print("Coletando informações de", top_blue_nick.text)
+jg_lane = "/jungle"# aqui estão identificadas as lanes
+jg_blue_leaguegraph_profile = leaguegraph_main_profile_stats + jg_blue_champion.lower() + "/" + "br/" + jg_blue_nick.text + jg_lane
+driver.get(top_blue_leaguegraph_profile)
+time.sleep(5)
+#script de coleta de informações jogador, indentificação de elemento + store:
+#coleta games jogados no mês com o campeao:
+player_gamesjogados_month = driver.find_element_by_xpath('//*[@id="graphDD54"]')
+txt_jg_blue_gamesjogados_month = open("jg_blue_gamesjogados_month.txt", "w")
+txt_jg_blue_gamesjogados_month.write(player_gamesjogados_month.text)
+txt_jg_blue_gamesjogados_month.close()
+txt_jg_blue_gamesjogados_month_r = open("jg_blue_gamesjogados_month.txt", "r")
+txt_jg_blue_gamesjogados_month_text_r = txt_jg_blue_gamesjogados_month_r.read()
+print(txt_jg_blue_gamesjogados_month_text_r)
+
+#coleta porcentagem de vitoria no mês com campeão
+player_wr_champion_month = driver.find_element_by_xpath('//*[@id="graphDD55"]')
+txt_jg_blue_wr_champion_month = open("txt_jg_blue_wr_champion_month.txt", "w")
+txt_jg_blue_wr_champion_month.write(player_wr_champion_month.text)
+txt_jg_blue_wr_champion_month.close()
+txt_jg_blue_wr_champion_month_r = open("txt_jg_blue_wr_champion_month.txt", "r")
+txt_jg_blue_wr_champion_month_text_r = txt_jg_blue_wr_champion_month_r.read()
+
+#taxa de vitórias em lutas em equipe mes:
+
+player_tfwr_champion_month = driver.find_element_by_xpath('//*[@id="graphDD23"]')
+txt_jg_blue_tfwr_champion_month = open("txt_jg_blue_tfwr_champion_month.txt", "w")
+txt_jg_blue_tfwr_champion_month.write(player_tfwr_champion_month.text)
+txt_jg_blue_tfwr_champion_month.close()
+txt_jg_blue_tfwr_champion_month_r = open("txt_jg_blue_tfwr_champion_month.txt", "r")
+txt_jg_blue_tfwr_champion_month_text_r = txt_jg_blue_tfwr_champion_month_r.read()
+
+#taxa de vitoria em 1v1:
+
+player_1v1wr_champion_month = driver.find_element_by_xpath('//*[@id="graphDD24"]')
+txt_jg_blue_1v1wr_champion_month = open("txt_jg_blue_1v1wr_champion_month.txt", "w")
+txt_jg_blue_1v1wr_champion_month.write(player_1v1wr_champion_month.text)
+txt_jg_blue_1v1wr_champion_month.close()
+txt_jg_blue_1v1wr_champion_month_r = open("txt_jg_blue_1v1wr_champion_month.txt", "r")
+txt_jg_blue_1v1wr_champion_month_r_text = txt_jg_blue_1v1wr_champion_month_r.read()
+
+#taxa de participação nas lutas:
+
+player_tfp_champion_month = driver.find_element_by_xpath('//*[@id="graphDD26"]')
+txt_jg_blue_tfp_champion_month = open("txt_jg_blue_tfp_champion_month.txt", "w")
+txt_jg_blue_tfp_champion_month.write(player_tfp_champion_month.text)
+txt_jg_blue_tfp_champion_month.close()
+txt_jg_blue_tfp_champion_month_r = open("txt_jg_blue_tfp_champion_month.txt", "r")
+txt_jg_blue_tfp_champion_month_r_text = txt_jg_blue_tfp_champion_month_r.read()
+
+
+
 
 
 
