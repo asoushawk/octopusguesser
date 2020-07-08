@@ -444,9 +444,39 @@ sup_blue_mainrole = driver.find_element_by_xpath(
     '//*[@id="liveContent"]/div[1]/ul[1]/li[5]/div/div[2]/div[3]/div[1]/div[2]/div[2]/span')
 
 
+def showinfo():  # mostrar jogadores e campeoes
+    print("Jogadores Time Azul:")
+    print(txt_top_blue_nick_store_text_r, "-",
+          txt_top_blue_champion_store_text_r, )
+    print(txt_jg_blue_nick_store_text_r, "-",
+          txt_jg_blue_champion_store_text_r, )
+    print(txt_mid_blue_nick_store_text_r, "-",
+          txt_mid_blue_champion_store_text_r, )
+    print(txt_adc_blue_nick_store_text_r, "-",
+          txt_adc_blue_champion_store_text_r, )
+    print(txt_sup_blue_nick_store_text_r, "-",
+          txt_sup_blue_champion_store_text_r, )
+
+    print("Jogadores Time Vermelho:")
+    print(txt_top_red_nick_store_text_r, "-",
+          txt_top_red_champion_store_text_r, )
+    print(txt_jg_red_nick_store_text_r, "-",
+          txt_jg_red_champion_store_text_r, )
+    print(txt_mid_red_nick_store_text_r, "-",
+          txt_mid_red_champion_store_text_r, )
+    print(txt_adc_red_nick_store_text_r, "-",
+          txt_adc_red_champion_store_text_r, )
+    print(txt_sup_red_nick_store_text_r, "-",
+          txt_sup_red_champion_store_text_r, )
+
+
+showinfo()
+
 # identificação de jogador para coleta de infomações dos ultimos 30 dias com o campeao:
 
 # ir para a pagina do perfil do TOPBLUE
+
+
 def wukongtesttop():
     maybewukong = txt_top_blue_champion_store_text_r
     if maybewukong == "Wukong":
@@ -763,10 +793,7 @@ except:
     pass
 
 
-
-
-
-###### ENTRA NA PAGINA DO JG NA LANE
+# ENTRA NA PAGINA DO JG NA LANE
 
 leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
 
@@ -982,7 +1009,7 @@ except:
 
 # league graphs mid na rota
 mid_lane = "/middle"  # aqui estão identificadas as lanes
-jg_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
+mid_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
     "/" + "br/" + txt_mid_blue_nick_store_text_r + mid_lane
 driver.get(mid_blue_leaguegraph_profile)
 time.sleep(5)
@@ -1192,7 +1219,7 @@ except:
 # league graphs adc na rota
 adc_lane = "/adc"  # aqui estão identificadas as lanes
 adc_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
-    "/" + "br/" + txt_adc_blue_nick_store_text_r + mid_lane
+    "/" + "br/" + txt_adc_blue_nick_store_text_r + adc_lane
 driver.get(adc_blue_leaguegraph_profile)
 time.sleep(5)
 try:
@@ -1265,8 +1292,6 @@ try:
 except:
     pass
 
-
-
     # ADC Blue - Mobalytics
 mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
 adc_blue_mobalytics_profile = mobalytics_main_profile_stats + \
@@ -1283,7 +1308,7 @@ txt_adc_blue_champion_alltime_wr.write(adc_blue_champion_alltime_wr.text)
 txt_adc_blue_champion_alltime_wr.close()
 txt_adc_blue_champion_alltime_wr_r = open(
     "adc_blue_champion_alltime_wr.txt", "r")
-txt_adc_blue_champion_alltime_wr_r_text = txt_adc_blue_champion_alltime_wr.read()
+txt_adc_blue_champion_alltime_wr_r_text = txt_adc_blue_champion_alltime_wr_r.read()
 print("Winrate season:", txt_adc_blue_champion_alltime_wr_r_text)
 
 
@@ -1294,7 +1319,7 @@ txt_adc_blue_champion_kda = open("adc_blue_champion_kda.txt", "w")
 txt_adc_blue_champion_kda.write(adc_blue_champion_kda.text)
 txt_adc_blue_champion_kda.close()
 txt_adc_blue_champion_kda_r = open("adc_blue_champion_kda.txt", "r")
-txt_adc_blue_champion_kda_r_text = txt_adc_blue_champion_kda.read()
+txt_adc_blue_champion_kda_r_text = txt_adc_blue_champion_kda_r.read()
 print("KDA da season", txt_adc_blue_champion_kda_r_text)
 # vision score - ADc
 adc_blue_champion_ward = driver.find_element_by_xpath(
@@ -1303,7 +1328,7 @@ txt_adc_blue_champion_ward = open("txt_adc_blue_champion_ward", "w")
 txt_adc_blue_champion_ward.write(adc_blue_champion_ward.text)
 txt_adc_blue_champion_ward.close()
 txt_adc_blue_champion_ward_r = open("txt_adc_blue_champion_ward", "r")
-txt_adc_blue_champion_ward_r_text = txt_adc_blue_champion_ward.read()
+txt_adc_blue_champion_ward_r_text = txt_adc_blue_champion_ward_r.read()
 print("Placar de visão:", txt_adc_blue_champion_ward_r_text)
 
 
@@ -1395,7 +1420,7 @@ try:
 except:
     pass
 
-###### ENTRA NA PAGINA DO SUP NA LANE
+# ENTRA NA PAGINA DO SUP NA LANE
 
 leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
 
@@ -1475,7 +1500,6 @@ try:
 except:
     pass
 
-
     # SUP Blue - Mobalytics
 mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
 sup_blue_mobalytics_profile = mobalytics_main_profile_stats + \
@@ -1493,8 +1517,8 @@ txt_sup_blue_champion_alltime_wr.write(sup_blue_champion_alltime_wr.text)
 txt_sup_blue_champion_alltime_wr.close()
 txt_sup_blue_champion_alltime_wr_r = open(
     "sup_blue_champion_alltime_wr.txt", "r")
-txt_sup_blue_champion_alltime_wr_r_text = txt_sup_blue_champion_alltime_wr.read()
-print("winrate:", txt_sup_blue_champion_alltime_wr_r)
+txt_sup_blue_champion_alltime_wr_r_text = txt_sup_blue_champion_alltime_wr_r.read()
+print("winrate:", txt_sup_blue_champion_alltime_wr_r_text)
 
 
 # sup blue kda season
@@ -1504,8 +1528,8 @@ txt_sup_blue_champion_kda = open("sup_blue_champion_kda.txt", "w")
 txt_sup_blue_champion_kda.write(sup_blue_champion_kda.text)
 txt_sup_blue_champion_kda.close()
 txt_sup_blue_champion_kda_r = open("sup_blue_champion_kda.txt", "r")
-txt_sup_blue_champion_kda_r_text = txt_sup_blue_champion_kda.read()
-print("Kda da season:", txt_sup_blue_champion_kda_r)
+txt_sup_blue_champion_kda_r_text = txt_sup_blue_champion_kda_r.read()
+print("Kda da season:", txt_sup_blue_champion_kda_r_text)
 
 # vision score - sup
 sup_blue_champion_ward = driver.find_element_by_xpath(
@@ -1514,8 +1538,8 @@ txt_sup_blue_champion_ward = open("txt_sup_blue_champion_ward", "w")
 txt_sup_blue_champion_ward.write(sup_blue_champion_ward.text)
 txt_sup_blue_champion_ward.close()
 txt_sup_blue_champion_ward_r = open("txt_sup_blue_champion_ward", "r")
-txt_sup_blue_champion_ward_r_text = txt_sup_blue_champion_ward.read()
-print("Placar de visão:", txt_sup_blue_champion_ward_r)
+txt_sup_blue_champion_ward_r_text = txt_sup_blue_champion_ward_r.read()
+print("Placar de visão:", txt_sup_blue_champion_ward_r_text)
 
 
 # numero de jogos com o campeao  sup
@@ -1529,29 +1553,3 @@ txt_sup_blue_gamesplayed_champion_r = open(
     "sup_blue_gamesplayed_champion.txt", "r")
 txt_sup_blue_gamesplayed_champion_r_text = txt_sup_blue_gamesplayed_champion_r.read()
 print("Jogos com o campeão:", txt_sup_blue_gamesplayed_champion_r_text)
-
-
-def showinfo():  # mostrar jogadores e campeoes
-    print("Jogadores Time Azul:")
-    print(txt_top_blue_nick_store_text_r, "-",
-          txt_top_blue_champion_store_text_r, )
-    print(txt_jg_blue_nick_store_text_r, "-",
-          txt_jg_blue_champion_store_text_r, )
-    print(txt_mid_blue_nick_store_text_r, "-",
-          txt_mid_blue_champion_store_text_r, )
-    print(txt_adc_blue_nick_store_text_r, "-",
-          txt_adc_blue_champion_store_text_r, )
-    print(txt_sup_blue_nick_store_text_r, "-",
-          txt_sup_blue_champion_store_text_r, )
-
-    print("Jogadores Time Vermelho:")
-    print(txt_top_red_nick_store_text_r, "-",
-          txt_top_red_champion_store_text_r, )
-    print(txt_jg_red_nick_store_text_r, "-",
-          txt_jg_red_champion_store_text_r, )
-    print(txt_mid_red_nick_store_text_r, "-",
-          txt_mid_red_champion_store_text_r, )
-    print(txt_adc_red_nick_store_text_r, "-",
-          txt_adc_red_champion_store_text_r, )
-    print(txt_sup_red_nick_store_text_r, "-",
-          txt_sup_red_champion_store_text_r, )
