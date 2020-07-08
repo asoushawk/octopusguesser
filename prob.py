@@ -548,12 +548,11 @@ top_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
     "/" + "br/" + txt_top_blue_nick_store_text_r + top_lane
 driver.get(top_blue_leaguegraph_profile)
 time.sleep(5)
-
 try:
     player_gamesjogados_month = driver.find_element_by_xpath(
         '//*[@id="graphDD54"]')
     txt_top_blue_rota_gamesjogados_month = open(
-        "top_blue_gamesjogados_month.txt", "w")
+        "top_blue_rota_gamesjogados_month.txt", "w")
     txt_top_blue_rota_gamesjogados_month.write(player_gamesjogados_month.text)
     txt_top_blue_rota_gamesjogados_month.close()
     txt_top_blue_rota_gamesjogados_month_r = open(
@@ -566,12 +565,12 @@ try:
     player_wr_champion_month = driver.find_element_by_xpath(
         '//*[@id="graphDD55"]')
     txt_top_blue_rota_champion_month = open(
-        "txt_top_blue_wr_champion_month.txt", "w")
+        "txt_top_blue_rota_champion_month.txt", "w")
     txt_top_blue_rota_champion_month.write(player_wr_champion_month.text)
     txt_top_blue_rota_champion_month.close()
     txt_top_blue_rota_champion_month_r = open(
-        "txt_top_blue_wr_champion_month.txt", "r")
-    txt_top_blue_rota_champion_month_text_r = txt_top_blue_wr_champion_month_r.read()
+        "txt_top_blue_rota_champion_month.txt", "r")
+    txt_top_blue_rota_champion_month_text_r = txt_top_blue_rota_champion_month_r.read()
     print("Taxa de vitória:", txt_top_blue_rota_champion_month_text_r)
 
     # taxa de vitórias em lutas em equipe mes:
@@ -580,7 +579,8 @@ try:
         '//*[@id="graphDD23"]')
     txt_top_blue_rota_tfwr_champion_month = open(
         "txt_top_blue_rota_tfwr_champion_month.txt", "w")
-    txt_top_blue_rota_tfwr_champion_month.write(player_tfwr_champion_month.text)
+    txt_top_blue_rota_tfwr_champion_month.write(
+        player_tfwr_champion_month.text)
     txt_top_blue_rota_tfwr_champion_month.close()
     txt_top_blue_rota_tfwr_champion_month_r = open(
         "txt_top_rota_blue_tfwr_champion_month.txt", "r")
@@ -592,9 +592,10 @@ try:
 
     player_1v1wr_champion_month = driver.find_element_by_xpath(
         '//*[@id="graphDD24"]')
-    txt_top_blue__rota_1v1wr_champion_month = open(
+    txt_top_blue_rota_1v1wr_champion_month = open(
         "txt_top_blue_rota_1v1wr_champion_month.txt", "w")
-    txt_top_blue_rota_1v1wr_champion_month.write(player_1v1wr_champion_month.text)
+    txt_top_blue_rota_1v1wr_champion_month.write(
+        player_1v1wr_champion_month.text)
     txt_top_blue_rota_1v1wr_champion_month.close()
     txt_top_blue_rota_1v1wr_champion_month_r = open(
         "txt_top_blue_rota_1v1wr_champion_month.txt", "r")
@@ -611,11 +612,11 @@ try:
     txt_top_blue_rota_tfp_champion_month_r = open(
         "txt_top_blue_rota_tfp_champion_month.txt", "r")
     txt_top_blue_rota_tfp_champion_month_r_text = txt_top_blue_rota_tfp_champion_month_r.read()
-    print("Taxa de participação em TFs", txt_top_blue_rota_tfp_champion_month_r_text)
+    print("Taxa de participação em TFs",
+          txt_top_blue_rota_tfp_champion_month_r_text)
 
 except:
     pass
-
 
 
 # TOP Blue - Mobalytics
@@ -656,21 +657,20 @@ try:
     txt_top_blue_champion_ward_r = open("txt_top_blue_champion_ward", "r")
     txt_top_blue_champion_ward_r_text = txt_top_blue_champion_ward_r.read()
     print("Placar de visão:", txt_top_blue_champion_ward_r_text)
+
+    # numero de jogos com o campeao
+    top_blue_gamesplayed_champion = driver.find_element_by_xpath(
+        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
+    txt_top_blue_gamesplayed_champion = open(
+        "top_blue_gamesplayed_champion.txt", "w")
+    txt_top_blue_gamesplayed_champion.write(top_blue_gamesplayed_champion.text)
+    txt_top_blue_gamesplayed_champion.close()
+    txt_top_blue_gamesplayed_champion_r = open(
+        top_blue_gamesplayed_champion.txt, "r")
+    txt_top_blue_gamesplayed_champion_r_text = txt_top_blue_gamesplayed_champion_r.read()
+    print("Total de jogos:", txt_top_blue_gamesplayed_champion_r_text)
 except:
     pass
-
-# numero de jogos com o campeao
-top_blue_gamesplayed_champion = driver.find_element_by_xpath(
-    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
-txt_top_blue_gamesplayed_champion = open(
-    "top_blue_gamesplayed_champion.txt", "w")
-txt_top_blue_gamesplayed_champion.write(top_blue_gamesplayed_champion.text)
-txt_top_blue_gamesplayed_champion.close()
-txt_top_blue_gamesplayed_champion_r = open(
-    "top_blue_gamesplayed_champion.txt", "r")
-txt_top_blue_gamesplayed_champion_r_text = txt_top_blue_gamesplayed_champion_r.read()
-print("Total de jogos:", txt_top_blue_gamesplayed_champion_r_text)
-# winrate season top blue
 
 # ir para a pagina do leaguegraphs do JG Blue
 
@@ -693,6 +693,9 @@ driver.get(jg_blue_leaguegraph_profile)
 time.sleep(5)
 # script de coleta de informações jogador, indentificação de elemento + store:
 # coleta games jogados no mês com o campeao:
+
+
+# coleta games jogados no mês com o campeao: JG
 try:
     player_gamesjogados_month = driver.find_element_by_xpath(
         '//*[@id="graphDD54"]')
@@ -759,6 +762,90 @@ try:
 except:
     pass
 
+
+
+
+
+###### ENTRA NA PAGINA DO JG NA LANE
+
+leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
+
+jg_lane = "/jungle"  # aqui estão identificadas as lanes
+jg_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
+    "/" + "br/" + txt_jg_blue_nick_store_text_r + jg_lane
+driver.get(jg_blue_leaguegraph_profile)
+time.sleep(5)
+try:
+    player_gamesjogados_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD54"]')
+    txt_jg_blue_rota_gamesjogados_month = open(
+        "jg_blue_rota_gamesjogados_month.txt", "w")
+    txt_jg_blue_rota_gamesjogados_month.write(player_gamesjogados_month.text)
+    txt_jg_blue_rota_gamesjogados_month.close()
+    txt_jg_blue_rota_gamesjogados_month_r = open(
+        "jg_blue_rota_gamesjogados_month.txt", "r")
+    txt_jg_blue_rota_gamesjogados_month_text_r = txt_jg_blue_gamesjogados_month_r.read()
+    print("Jogos na rota", jg_lane,
+          "nos últimos 30 dias:", txt_jg_blue_rota_gamesjogados_month_text_r)
+
+    # coleta porcentagem de vitoria no mês com campeão
+    player_wr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD55"]')
+    txt_jg_blue_rota_champion_month = open(
+        "txt_jg_blue_rota_champion_month.txt", "w")
+    txt_jg_blue_rota_champion_month.write(player_wr_champion_month.text)
+    txt_jg_blue_rota_champion_month.close()
+    txt_jg_blue_rota_champion_month_r = open(
+        "txt_jg_blue_rota_champion_month.txt", "r")
+    txt_jg_blue_rota_champion_month_text_r = txt_jg_blue_rota_champion_month_r.read()
+    print("Taxa de vitória:", txt_jg_blue_rota_champion_month_text_r)
+
+    # taxa de vitórias em lutas em equipe mes:
+
+    player_tfwr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD23"]')
+    txt_jg_blue_rota_tfwr_champion_month = open(
+        "txt_jg_blue_rota_tfwr_champion_month.txt", "w")
+    txt_jg_blue_rota_tfwr_champion_month.write(
+        player_tfwr_champion_month.text)
+    txt_jg_blue_rota_tfwr_champion_month.close()
+    txt_jg_blue_rota_tfwr_champion_month_r = open(
+        "txt_jg_rota_blue_tfwr_champion_month.txt", "r")
+    txt_jg_blue_rota_tfwr_champion_month_text_r = txt_jg_blue_rota_tfwr_champion_month_r.read()
+    print("Taxa de Vitória de Team Fights",
+          txt_jg_blue_rota_tfwr_champion_month_text_r)
+
+    # taxa de vitoria em 1v1:
+
+    player_1v1wr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD24"]')
+    txt_jg_blue_rota_1v1wr_champion_month = open(
+        "txt_jg_blue_rota_1v1wr_champion_month.txt", "w")
+    txt_jg_blue_rota_1v1wr_champion_month.write(
+        player_1v1wr_champion_month.text)
+    txt_jg_blue_rota_1v1wr_champion_month.close()
+    txt_jg_blue_rota_1v1wr_champion_month_r = open(
+        "txt_jg_blue_rota_1v1wr_champion_month.txt", "r")
+    txt_jg_blue_rota_1v1wr_champion_month_r_text = txt_jg_blue_rota_1v1wr_champion_month_r.read()
+    print("Taxa de vitória de 1v1", txt_jg_blue_rota_1v1wr_champion_month_r_text)
+    # taxa de participação nas lutas:
+
+    player_tfp_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD26"]')
+    txt_jg_blue_rota_tfp_champion_month = open(
+        "txt_jg_blue_rota_tfp_champion_month.txt", "w")
+    txt_jg_blue_rota_tfp_champion_month.write(player_tfp_champion_month.text)
+    txt_jg_blue_rota_tfp_champion_month.close()
+    txt_jg_blue_rota_tfp_champion_month_r = open(
+        "txt_jg_blue_rota_tfp_champion_month.txt", "r")
+    txt_jg_blue_rota_tfp_champion_month_r_text = txt_jg_blue_rota_tfp_champion_month_r.read()
+    print("Taxa de participação em TFs",
+          txt_jg_blue_rota_tfp_champion_month_r_text)
+
+except:
+    pass
+
+
 # JG Blue - Mobalytics
 
 mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
@@ -769,19 +856,19 @@ time.sleep(15)
 try:
     # winrate season jg blue
     jg_blue_champion_alltime_wr = driver.find_element_by_xpath(
-    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
-    txt_jg_blue_champion_alltime_wr = open("jg_blue_champion_alltime_wr.txt", "w")
+        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
+    txt_jg_blue_champion_alltime_wr = open(
+        "jg_blue_champion_alltime_wr.txt", "w")
     txt_jg_blue_champion_alltime_wr.write(jg_blue_champion_alltime_wr.text)
     txt_jg_blue_champion_alltime_wr.close()
     txt_jg_blue_champion_alltime_wr_r = open(
-    "jg_blue_champion_alltime_wr.txt", "r")
+        "jg_blue_champion_alltime_wr.txt", "r")
     txt_jg_blue_champion_alltime_wr_r_text = txt_jg_blue_champion_alltime_wr_r.read()
     print("Winrate da season:", txt_jg_blue_champion_alltime_wr_r_text)
 
-
-     # jg blue kda season
+    # jg blue kda season
     jg_blue_champion_kda = driver.find_element_by_xpath(
-    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[5]')
+        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[5]')
     txt_jg_blue_champion_kda = open("jg_blue_champion_kda.txt", "w")
     txt_jg_blue_champion_kda.write(jg_blue_champion_kda.text)
     txt_jg_blue_champion_kda.close()
@@ -791,7 +878,7 @@ try:
 
     # vision score -JG
     jg_blue_champion_ward = driver.find_element_by_xpath(
-    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
+        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
     txt_jg_blue_champion_ward = open("txt_jg_blue_champion_ward", "w")
     txt_jg_blue_champion_ward.write(jg_blue_champion_ward.text)
     txt_jg_blue_champion_ward.close()
@@ -799,18 +886,18 @@ try:
     txt_jg_blue_champion_ward_r_text = txt_jg_blue_champion_ward_r.read()
     print("Placar de visão:", txt_jg_blue_champion_ward_r_text)
 
-
     # numero de jogos com o campeao  JG
     jg_blue_gamesplayed_champion = driver.find_element_by_xpath(
-    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
+        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
     txt_jg_blue_gamesplayed_champion = open(
-    "jg_blue_gamesplayed_champion.txt", "w")
+        "jg_blue_gamesplayed_champion.txt", "w")
     txt_jg_blue_gamesplayed_champion.write(jg_blue_gamesplayed_champion.text)
     txt_jg_blue_gamesplayed_champion.close()
     txt_jg_blue_gamesplayed_champion_r = open(
-    "jg_blue_gamesplayed_champion.txt", "r")
+        "jg_blue_gamesplayed_champion.txt", "r")
     txt_jg_blue_gamesplayed_champion_r_text = txt_jg_blue_gamesplayed_champion_r.read()
-    print("Número de jogos com campeão:", txt_jg_blue_gamesplayed_champion_r_text)
+    print("Número de jogos com campeão:",
+          txt_jg_blue_gamesplayed_champion_r_text)
 except:
     pass
 
@@ -823,7 +910,6 @@ mid_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
     mid_blue_champion.lower() + "/" + "br/" + txt_mid_blue_nick_store_text_r + mid_lane
 driver.get(mid_blue_leaguegraph_profile)
 time.sleep(10)
-
 
 
 try:
@@ -894,6 +980,83 @@ except:
     pass
 
 
+# league graphs mid na rota
+mid_lane = "/middle"  # aqui estão identificadas as lanes
+jg_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
+    "/" + "br/" + txt_mid_blue_nick_store_text_r + mid_lane
+driver.get(mid_blue_leaguegraph_profile)
+time.sleep(5)
+try:
+    player_gamesjogados_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD54"]')
+    txt_mid_blue_rota_gamesjogados_month = open(
+        "mid_blue_rota_gamesjogados_month.txt", "w")
+    txt_mid_blue_rota_gamesjogados_month.write(player_gamesjogados_month.text)
+    txt_mid_blue_rota_gamesjogados_month.close()
+    txt_mid_blue_rota_gamesjogados_month_r = open(
+        "mid_blue_rota_gamesjogados_month.txt", "r")
+    txt_mid_blue_rota_gamesjogados_month_text_r = txt_mid_blue_gamesjogados_month_r.read()
+    print("Jogos na rota", mid_lane,
+          "nos últimos 30 dias:", txt_mid_blue_rota_gamesjogados_month_text_r)
+
+    # coleta porcentagem de vitoria no mês com campeão
+    player_wr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD55"]')
+    txt_mid_blue_rota_champion_month = open(
+        "txt_mid_blue_rota_champion_month.txt", "w")
+    txt_mid_blue_rota_champion_month.write(player_wr_champion_month.text)
+    txt_mid_blue_rota_champion_month.close()
+    txt_mid_blue_rota_champion_month_r = open(
+        "txt_mid_blue_rota_champion_month.txt", "r")
+    txt_mid_blue_rota_champion_month_text_r = txt_mid_blue_rota_champion_month_r.read()
+    print("Taxa de vitória:", txt_mid_blue_rota_champion_month_text_r)
+
+    # taxa de vitórias em lutas em equipe mes:
+
+    player_tfwr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD23"]')
+    txt_mid_blue_rota_tfwr_champion_month = open(
+        "txt_mid_blue_rota_tfwr_champion_month.txt", "w")
+    txt_mid_blue_rota_tfwr_champion_month.write(
+        player_tfwr_champion_month.text)
+    txt_mid_blue_rota_tfwr_champion_month.close()
+    txt_mid_blue_rota_tfwr_champion_month_r = open(
+        "txt_mid_rota_blue_tfwr_champion_month.txt", "r")
+    txt_mid_blue_rota_tfwr_champion_month_text_r = txt_mid_blue_rota_tfwr_champion_month_r.read()
+    print("Taxa de Vitória de Team Fights",
+          txt_mid_blue_rota_tfwr_champion_month_text_r)
+
+    # taxa de vitoria em 1v1:
+
+    player_1v1wr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD24"]')
+    txt_mid_blue_rota_1v1wr_champion_month = open(
+        "txt_top_blue_rota_1v1wr_champion_month.txt", "w")
+    txt_mid_blue_rota_1v1wr_champion_month.write(
+        player_1v1wr_champion_month.text)
+    txt_mid_blue_rota_1v1wr_champion_month.close()
+    txt_mid_blue_rota_1v1wr_champion_month_r = open(
+        "txt_mid_blue_rota_1v1wr_champion_month.txt", "r")
+    txt_mid_blue_rota_1v1wr_champion_month_r_text = txt_top_blue_rota_1v1wr_champion_month_r.read()
+    print("Taxa de vitória de 1v1", txt_top_blue_rota_1v1wr_champion_month_r_text)
+    # taxa de participação nas lutas:
+
+    player_tfp_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD26"]')
+    txt_top_blue_rota_tfp_champion_month = open(
+        "txt_top_blue_rota_tfp_champion_month.txt", "w")
+    txt_top_blue_rota_tfp_champion_month.write(player_tfp_champion_month.text)
+    txt_top_blue_rota_tfp_champion_month.close()
+    txt_top_blue_rota_tfp_champion_month_r = open(
+        "txt_top_blue_rota_tfp_champion_month.txt", "r")
+    txt_top_blue_rota_tfp_champion_month_r_text = txt_top_blue_rota_tfp_champion_month_r.read()
+    print("Taxa de participação em TFs",
+          txt_top_blue_rota_tfp_champion_month_r_text)
+
+except:
+    pass
+
+
 # MOBALYTICS MID
 
 # MID Blue - Mobalytics
@@ -929,7 +1092,7 @@ print("KDA da season", txt_mid_blue_champion_kda_r_text)
 mid_blue_champion_ward = driver.find_element_by_xpath(
     '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
 txt_mid_blue_champion_ward = open("txt_mid_blue_champion_ward", "w")
-txt_mid_blue_champion_ward.write(top_blue_champion_ward.text)
+txt_mid_blue_champion_ward.write(mid_blue_champion_ward.text)
 txt_mid_blue_champion_ward.close()
 txt_mid_blue_champion_ward_r = open("txt_mid_blue_champion_ward", "r")
 txt_mid_blue_champion_ward_r_text = txt_mid_blue_champion_ward_r.read()
@@ -942,7 +1105,7 @@ mid_blue_gamesplayed_champion = driver.find_element_by_xpath(
 txt_mid_blue_gamesplayed_champion = open(
     "mid_blue_gamesplayed_champion.txt", "w")
 txt_mid_blue_gamesplayed_champion.write(
-    mid_blue_gamesplayed_champion.text.text)
+    mid_blue_gamesplayed_champion.text)
 txt_mid_blue_gamesplayed_champion.close()
 txt_mid_blue_gamesplayed_champion_r = open(
     "mid_blue_gamesplayed_champion.txt", "r")
@@ -1024,6 +1187,85 @@ try:
     print("Taxa de participação em TFs", txt_adc_blue_tfp_champion_month_r_text)
 except:
     pass
+
+
+# league graphs adc na rota
+adc_lane = "/adc"  # aqui estão identificadas as lanes
+adc_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
+    "/" + "br/" + txt_adc_blue_nick_store_text_r + mid_lane
+driver.get(adc_blue_leaguegraph_profile)
+time.sleep(5)
+try:
+    player_gamesjogados_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD54"]')
+    txt_adc_blue_rota_gamesjogados_month = open(
+        "adc_blue_rota_gamesjogados_month.txt", "w")
+    txt_adc_blue_rota_gamesjogados_month.write(player_gamesjogados_month.text)
+    txt_adc_blue_rota_gamesjogados_month.close()
+    txt_adc_blue_rota_gamesjogados_month_r = open(
+        "adc_blue_rota_gamesjogados_month.txt", "r")
+    txt_adc_blue_rota_gamesjogados_month_text_r = txt_adc_blue_gamesjogados_month_r.read()
+    print("Jogos na rota", adc_lane,
+          "nos últimos 30 dias:", txt_adc_blue_rota_gamesjogados_month_text_r)
+
+    # coleta porcentagem de vitoria no mês com campeão
+    player_wr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD55"]')
+    txt_adc_blue_rota_champion_month = open(
+        "txt_adc_blue_rota_champion_month.txt", "w")
+    txt_adc_blue_rota_champion_month.write(player_wr_champion_month.text)
+    txt_adc_blue_rota_champion_month.close()
+    txt_adc_blue_rota_champion_month_r = open(
+        "txt_adc_blue_rota_champion_month.txt", "r")
+    txt_adc_blue_rota_champion_month_text_r = txt_adc_blue_rota_champion_month_r.read()
+    print("Taxa de vitória:", txt_adc_blue_rota_champion_month_text_r)
+
+    # taxa de vitórias em lutas em equipe mes:
+
+    player_tfwr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD23"]')
+    txt_adc_blue_rota_tfwr_champion_month = open(
+        "txt_adc_blue_rota_tfwr_champion_month.txt", "w")
+    txt_adc_blue_rota_tfwr_champion_month.write(
+        player_tfwr_champion_month.text)
+    txt_adc_blue_rota_tfwr_champion_month.close()
+    txt_adc_blue_rota_tfwr_champion_month_r = open(
+        "txt_adc_blue_rota_tfwr_champion_month.txt", "r")
+    txt_adc_blue_rota_tfwr_champion_month_text_r = txt_adc_blue_rota_tfwr_champion_month_r.read()
+    print("Taxa de Vitória de Team Fights",
+          txt_adc_blue_rota_tfwr_champion_month_text_r)
+
+    # taxa de vitoria em 1v1:
+
+    player_1v1wr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD24"]')
+    txt_adc_blue_rota_1v1wr_champion_month = open(
+        "txt_top_blue_rota_1v1wr_champion_month.txt", "w")
+    txt_adc_blue_rota_1v1wr_champion_month.write(
+        player_1v1wr_champion_month.text)
+    txt_adc_blue_rota_1v1wr_champion_month.close()
+    txt_adc_blue_rota_1v1wr_champion_month_r = open(
+        "txt_adc_blue_rota_1v1wr_champion_month.txt", "r")
+    txt_adc_blue_rota_1v1wr_champion_month_r_text = txt_top_blue_rota_1v1wr_champion_month_r.read()
+    print("Taxa de vitória de 1v1", txt_top_blue_rota_1v1wr_champion_month_r_text)
+    # taxa de participação nas lutas:
+
+    player_tfp_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD26"]')
+    txt_adc_blue_rota_tfp_champion_month = open(
+        "txt_top_blue_rota_tfp_champion_month.txt", "w")
+    txt_adc_blue_rota_tfp_champion_month.write(player_tfp_champion_month.text)
+    txt_adc_blue_rota_tfp_champion_month.close()
+    txt_adc_blue_rota_tfp_champion_month_r = open(
+        "txt_top_blue_rota_tfp_champion_month.txt", "r")
+    txt_adc_blue_rota_tfp_champion_month_r_text = txt_adc_blue_rota_tfp_champion_month_r.read()
+    print("Taxa de participação em TFs",
+          txt_adc_blue_rota_tfp_champion_month_r_text)
+
+except:
+    pass
+
+
 
     # ADC Blue - Mobalytics
 mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
@@ -1152,6 +1394,87 @@ try:
     print("Taxa de participação em TFs", txt_sup_blue_tfp_champion_month_r_text)
 except:
     pass
+
+###### ENTRA NA PAGINA DO SUP NA LANE
+
+leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
+
+sup_lane = "/support"  # aqui estão identificadas as lanes
+sup_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
+    "/" + "br/" + txt_sup_blue_nick_store_text_r + sup_lane
+driver.get(sup_blue_leaguegraph_profile)
+time.sleep(5)
+try:
+    player_gamesjogados_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD54"]')
+    txt_sup_blue_rota_gamesjogados_month = open(
+        "sup_blue_rota_gamesjogados_month.txt", "w")
+    txt_sup_blue_rota_gamesjogados_month.write(player_gamesjogados_month.text)
+    txt_sup_blue_rota_gamesjogados_month.close()
+    txt_sup_blue_rota_gamesjogados_month_r = open(
+        "sup_blue_rota_gamesjogados_month.txt", "r")
+    txt_sup_blue_rota_gamesjogados_month_text_r = txt_sup_blue_gamesjogados_month_r.read()
+    print("Jogos na rota", sup_lane,
+          "nos últimos 30 dias:", txt_sup_blue_rota_gamesjogados_month_text_r)
+
+    # coleta porcentagem de vitoria no mês com campeão
+    player_wr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD55"]')
+    txt_sup_blue_rota_champion_month = open(
+        "txt_sup_blue_rota_champion_month.txt", "w")
+    txt_sup_blue_rota_champion_month.write(player_wr_champion_month.text)
+    txt_sup_blue_rota_champion_month.close()
+    txt_sup_blue_rota_champion_month_r = open(
+        "txt_sup_blue_rota_champion_month.txt", "r")
+    txt_sup_blue_rota_champion_month_text_r = txt_sup_blue_rota_champion_month_r.read()
+    print("Taxa de vitória:", txt_sup_blue_rota_champion_month_text_r)
+
+    # taxa de vitórias em lutas em equipe mes:
+
+    player_tfwr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD23"]')
+    txt_sup_blue_rota_tfwr_champion_month = open(
+        "txt_sup_blue_rota_tfwr_champion_month.txt", "w")
+    txt_sup_blue_rota_tfwr_champion_month.write(
+        player_tfwr_champion_month.text)
+    txt_sup_blue_rota_tfwr_champion_month.close()
+    txt_sup_blue_rota_tfwr_champion_month_r = open(
+        "txt_sup_rota_blue_tfwr_champion_month.txt", "r")
+    txt_sup_blue_rota_tfwr_champion_month_text_r = txt_sup_blue_rota_tfwr_champion_month_r.read()
+    print("Taxa de Vitória de Team Fights",
+          txt_sup_blue_rota_tfwr_champion_month_text_r)
+
+    # taxa de vitoria em 1v1:
+
+    player_1v1wr_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD24"]')
+    txt_sup_blue_rota_1v1wr_champion_month = open(
+        "txt_sup_blue_rota_1v1wr_champion_month.txt", "w")
+    txt_sup_blue_rota_1v1wr_champion_month.write(
+        player_1v1wr_champion_month.text)
+    txt_sup_blue_rota_1v1wr_champion_month.close()
+    txt_sup_blue_rota_1v1wr_champion_month_r = open(
+        "txt_sup_blue_rota_1v1wr_champion_month.txt", "r")
+    txt_sup_blue_rota_1v1wr_champion_month_r_text = txt_sup_blue_rota_1v1wr_champion_month_r.read()
+    print("Taxa de vitória de 1v1", txt_sup_blue_rota_1v1wr_champion_month_r_text)
+    # taxa de participação nas lutas:
+
+    player_tfp_champion_month = driver.find_element_by_xpath(
+        '//*[@id="graphDD26"]')
+    txt_sup_blue_rota_tfp_champion_month = open(
+        "txt_sup_blue_rota_tfp_champion_month.txt", "w")
+    txt_sup_blue_rota_tfp_champion_month.write(player_tfp_champion_month.text)
+    txt_sup_blue_rota_tfp_champion_month.close()
+    txt_sup_blue_rota_tfp_champion_month_r = open(
+        "txt_sup_blue_rota_tfp_champion_month.txt", "r")
+    txt_sup_blue_rota_tfp_champion_month_r_text = txt_sup_blue_rota_tfp_champion_month_r.read()
+    print("Taxa de participação em TFs",
+          txt_sup_blue_rota_tfp_champion_month_r_text)
+
+
+except:
+    pass
+
 
     # SUP Blue - Mobalytics
 mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
