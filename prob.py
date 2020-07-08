@@ -23,7 +23,7 @@ driver.get(partidaaovivo)
 driver.title
 print(driver.title)
 
-time.sleep(15)
+time.sleep(10)
 try:
     # time azul champions:
     top_blue_champion = driver.find_element_by_xpath(
@@ -461,6 +461,8 @@ def wukongtesttop():
 
 
 wukongtesttop()
+
+# ENTRA NO PERFIL DO TOP COM O CAMPEAO
 leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
 
 top_lane = "/top"  # aqui estão identificadas as lanes
@@ -538,19 +540,71 @@ try:
 
 except:
     pass
+    # ENTRA NO PERFIL DO TOP NA ROTA
+leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
 
+top_lane = "/top"  # aqui estão identificadas as lanes
+top_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
+    "/" + "br/" + txt_top_blue_nick_store_text_r + top_lane
+driver.get(top_blue_leaguegraph_profile)
+time.sleep(5)
+
+
+# TOP Blue - Mobalytics
 mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
 top_blue_mobalytics_profile = mobalytics_main_profile_stats + \
     txt_top_blue_nick_store_text_r + "/" + "champions?champion=" + top_blue_champion
 driver.get(top_blue_mobalytics_profile)
-time.sleep(30)
-top_blue_champion_alltime_wr = driver.find_element_by_xpath(
-    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
-print("Taxa de vitórias com", txt_top_blue_champion_store_text_r,
-      "total", top_blue_champion_alltime_wr.text)
+time.sleep(15)
 
+try:
+    top_blue_champion_alltime_wr = driver.find_element_by_xpath(
+        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
+    txt_top_blue_champion_alltime_wr = open(
+        "top_blue_champion_alltime_wr.txt", "w")
+    txt_top_blue_champion_alltime_wr.write(top_blue_champion_alltime_wr.text)
+    txt_top_blue_champion_alltime_wr.close()
+    txt_top_blue_champion_alltime_wr_r = open(
+        "top_blue_champion_alltime_wr.txt", "r")
+    txt_top_blue_champion_alltime_wr_r_text = txt_top_blue_champion_alltime_wr_r.read()
+    print("Winrate na season:", txt_top_blue_champion_alltime_wr_r_text)
 
-# ir para a pagina do perfil do JG Blue
+# top blue kda season
+    top_blue_champion_kda = driver.find_element_by_xpath(
+        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[5]')
+    txt_top_blue_champion_kda = open("top_blue_champion_kda.txt", "w")
+    txt_top_blue_champion_kda.write(top_blue_champion_kda.text)
+    txt_top_blue_champion_kda.close()
+    txt_top_blue_champion_kda_r = open("top_blue_champion_kda.txt", "r")
+    txt_top_blue_champion_kda_r_text = txt_top_blue_champion_kda_r.read()
+    print("KDA com o champion:", txt_top_blue_champion_kda_r_text)
+
+# vision score
+    top_blue_champion_ward = driver.find_element_by_xpath(
+        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
+    txt_top_blue_champion_ward = open("txt_top_blue_champion_ward", "w")
+    txt_top_blue_champion_ward.write(top_blue_champion_ward.text)
+    txt_top_blue_champion_ward.close()
+    txt_top_blue_champion_ward_r = open("txt_top_blue_champion_ward", "r")
+    txt_top_blue_champion_ward_r_text = txt_top_blue_champion_ward_r.read()
+    print("Placar de visão:", txt_top_blue_champion_ward_r_text)
+except:
+    pass
+
+# numero de jogos com o campeao
+top_blue_gamesplayed_champion = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
+txt_top_blue_gamesplayed_champion = open(
+    "top_blue_gamesplayed_champion.txt", "w")
+txt_top_blue_gamesplayed_champion.write(top_blue_gamesplayed_champion.text)
+txt_top_blue_gamesplayed_champion.close()
+txt_top_blue_gamesplayed_champion_r = open(
+    "top_blue_gamesplayed_champion.txt", "r")
+txt_top_blue_gamesplayed_champion_r_text = txt_top_blue_gamesplayed_champion_r.read()
+print("Total de jogos:", txt_top_blue_gamesplayed_champion_r_text)
+# winrate season top blue
+
+# ir para a pagina do leaguegraphs do JG Blue
 
 leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
 print("Coletando informações de", txt_jg_blue_nick_store_text_r)
@@ -634,30 +688,70 @@ try:
         "txt_jg_blue_tfp_champion_month.txt", "r")
     txt_jg_blue_tfp_champion_month_r_text = txt_jg_blue_tfp_champion_month_r.read()
     print("Taxa de participação em TFs", txt_jg_blue_tfp_champion_month_r_text)
-
-    # pegar dados jg mobalitcs
-    mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
-    jg_blue_mobalytics_profile = mobalytics_main_profile_stats + \
-        txt_jg_blue_nick_store_text_r + "/" + "champions?champion=" + jg_blue_champion
-    driver.get(jg_blue_mobalytics_profile)
-    time.sleep(30)
-    jg_blue_champion_alltime_wr = driver.find_element_by_xpath(
-        '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
-    print("Taxa de vitórias com", txt_jg_blue_champion_store_text_r,
-          "total", jg_blue_champion_alltime_wr.text)
 except:
     pass
 
+# JG Blue - Mobalytics
+mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
+jg_blue_mobalytics_profile = mobalytics_main_profile_stats + \
+    txt_jg_blue_nick_store_text_r + "/" + "champions?champion=" + jg_blue_champion
+driver.get(jg_blue_mobalytics_profile)
+time.sleep(15)
+
+# winrate season jg blue
+jg_blue_champion_alltime_wr = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
+txt_jg_blue_champion_alltime_wr = open("jg_blue_champion_alltime_wr.txt", "w")
+txt_jg_blue_champion_alltime_wr.write(jg_blue_champion_alltime_wr.text)
+txt_jg_blue_champion_alltime_wr.close()
+txt_jg_blue_champion_alltime_wr_r = open(
+    "jg_blue_champion_alltime_wr.txt", "r")
+txt_jg_blue_champion_alltime_wr_r_text = txt_jg_blue_champion_alltime_wr_r.read()
+print("Winrate da season:", txt_jg_blue_champion_alltime_wr_r_text)
+
+
+# jg blue kda season
+jg_blue_champion_kda = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[5]')
+txt_jg_blue_champion_kda = open("jg_blue_champion_kda.txt", "w")
+txt_jg_blue_champion_kda.write(jg_blue_champion_kda.text)
+txt_jg_blue_champion_kda.close()
+txt_jg_blue_champion_kda_r = open("jg_blue_champion_kda.txt", "r")
+txt_jg_blue_champion_kda_r_text = txt_jg_blue_champion_kda_r.read()
+print("KDA na season", txt_jg_blue_champion_kda_r_text)
+
+# vision score -JG
+jg_blue_champion_ward = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
+txt_jg_blue_champion_ward = open("txt_jg_blue_champion_ward", "w")
+txt_jg_blue_champion_ward.write(jg_blue_champion_ward.text)
+txt_jg_blue_champion_ward.close()
+txt_jg_blue_champion_ward_r = open("txt_jg_blue_champion_ward", "r")
+txt_jg_blue_champion_ward_r_text = txt_jg_blue_champion_ward_r.read()
+print("Placar de visão:", txt_jg_blue_champion_ward_r_text)
+
+
+# numero de jogos com o campeao  JG
+jg_blue_gamesplayed_champion = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
+txt_jg_blue_gamesplayed_champion = open(
+    "jg_blue_gamesplayed_champion.txt", "w")
+txt_jg_blue_gamesplayed_champion.write(jg_blue_gamesplayed_champion.text)
+txt_jg_blue_gamesplayed_champion.close()
+txt_jg_blue_gamesplayed_champion_r = open(
+    "jg_blue_gamesplayed_champion.txt", "r")
+txt_jg_blue_gamesplayed_champion_r_text = txt_jg_blue_gamesplayed_champion_r.read()
+print("Número de jogos com campeão:", txt_jg_blue_gamesplayed_champion_r_text)
+
 
 # MID leaguegraphs:
-
 leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
 print("Coletando informações de", txt_mid_blue_nick_store_text_r)
 mid_lane = "/middle"  # aqui estão identificadas as lanes
 mid_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
     mid_blue_champion.lower() + "/" + "br/" + txt_mid_blue_nick_store_text_r + mid_lane
 driver.get(mid_blue_leaguegraph_profile)
-time.sleep(5)
+time.sleep(10)
 try:
     player_gamesjogados_month = driver.find_element_by_xpath(
         '//*[@id="graphDD54"]')
@@ -725,6 +819,63 @@ try:
 except:
     pass
 
+
+# MOBALYTICS MID
+
+# MID Blue - Mobalytics
+mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
+mid_blue_mobalytics_profile = mobalytics_main_profile_stats + \
+    txt_mid_blue_nick_store_text_r + "/" + "champions?champion=" + mid_blue_champion
+driver.get(mid_blue_mobalytics_profile)
+time.sleep(15)
+
+# winrate season mid blue
+mid_blue_champion_alltime_wr = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
+txt_mid_blue_champion_alltime_wr = open(
+    "mid_blue_champion_alltime_wr.txt", "w")
+txt_mid_blue_champion_alltime_wr.write(mid_blue_champion_alltime_wr.text)
+txt_mid_blue_champion_alltime_wr.close()
+txt_mid_blue_champion_alltime_wr_r = open(
+    "mid_blue_champion_alltime_wr.txt", "r")
+txt_mid_blue_champion_alltime_wr_r_text = txt_mid_blue_champion_alltime_wr_r.read()
+print("Winrate Mid blue season", txt_mid_blue_champion_alltime_wr_r_text)
+
+# mid blue kda season
+mid_blue_champion_kda = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[5]')
+txt_mid_blue_champion_kda = open("mid_blue_champion_kda.txt", "w")
+txt_mid_blue_champion_kda.write(mid_blue_champion_kda.text)
+txt_mid_blue_champion_kda.close()
+txt_mid_blue_champion_kda_r = open("mid_blue_champion_kda.txt", "r")
+txt_mid_blue_champion_kda_r_text = txt_mid_blue_champion_kda_r.read()
+print("KDA da season", txt_mid_blue_champion_kda_r_text)
+
+# vision score
+mid_blue_champion_ward = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
+txt_mid_blue_champion_ward = open("txt_mid_blue_champion_ward", "w")
+txt_mid_blue_champion_ward.write(top_blue_champion_ward.text)
+txt_mid_blue_champion_ward.close()
+txt_mid_blue_champion_ward_r = open("txt_mid_blue_champion_ward", "r")
+txt_mid_blue_champion_ward_r_text = txt_mid_blue_champion_ward_r.read()
+print("Placar de visão season:", txt_mid_blue_champion_ward_r_text)
+
+
+# numero de jogos com o campeao
+mid_blue_gamesplayed_champion = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
+txt_mid_blue_gamesplayed_champion = open(
+    "mid_blue_gamesplayed_champion.txt", "w")
+txt_mid_blue_gamesplayed_champion.write(
+    mid_blue_gamesplayed_champion.text.text)
+txt_mid_blue_gamesplayed_champion.close()
+txt_mid_blue_gamesplayed_champion_r = open(
+    "mid_blue_gamesplayed_champion.txt", "r")
+txt_mid_blue_gamesplayed_champion_r_text = txt_mid_blue_gamesplayed_champion_r.read()
+print(txt_mid_blue_gamesplayed_champion_r_text)
+
+
 # ADC leaguegraphs:
 
 leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
@@ -733,7 +884,7 @@ adc_lane = "/adc"  # aqui estão identificadas as lanes
 adc_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
     adc_blue_champion.lower() + "/" + "br/" + txt_adc_blue_nick_store_text_r + adc_lane
 driver.get(adc_blue_leaguegraph_profile)
-time.sleep(5)
+time.sleep(10)
 try:
     player_gamesjogados_month = driver.find_element_by_xpath(
         '//*[@id="graphDD54"]')
@@ -797,19 +948,71 @@ try:
         "txt_adc_blue_tfp_champion_month.txt", "r")
     txt_adc_blue_tfp_champion_month_r_text = txt_adc_blue_tfp_champion_month_r.read()
     print("Taxa de participação em TFs", txt_adc_blue_tfp_champion_month_r_text)
-
 except:
     pass
+
+    # ADC Blue - Mobalytics
+mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
+adc_blue_mobalytics_profile = mobalytics_main_profile_stats + \
+    txt_adc_blue_nick_store_text_r + "/" + "champions?champion=" + adc_blue_champion
+driver.get(adc_blue_mobalytics_profile)
+time.sleep(15)
+
+# winrate season adc blue
+adc_blue_champion_alltime_wr = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
+txt_adc_blue_champion_alltime_wr = open(
+    "adc_blue_champion_alltime_wr.txt", "w")
+txt_adc_blue_champion_alltime_wr.write(adc_blue_champion_alltime_wr.text)
+txt_adc_blue_champion_alltime_wr.close()
+txt_adc_blue_champion_alltime_wr_r = open(
+    "adc_blue_champion_alltime_wr.txt", "r")
+txt_adc_blue_champion_alltime_wr_r_text = txt_adc_blue_champion_alltime_wr.read()
+print("Winrate season:", txt_adc_blue_champion_alltime_wr_r_text)
+
+
+# adc blue kda season
+adc_blue_champion_kda = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[5]')
+txt_adc_blue_champion_kda = open("adc_blue_champion_kda.txt", "w")
+txt_adc_blue_champion_kda.write(adc_blue_champion_kda.text)
+txt_adc_blue_champion_kda.close()
+txt_adc_blue_champion_kda_r = open("adc_blue_champion_kda.txt", "r")
+txt_adc_blue_champion_kda_r_text = txt_adc_blue_champion_kda.read()
+print("KDA da season", txt_adc_blue_champion_kda_r_text)
+# vision score - ADc
+adc_blue_champion_ward = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
+txt_adc_blue_champion_ward = open("txt_adc_blue_champion_ward", "w")
+txt_adc_blue_champion_ward.write(adc_blue_champion_ward.text)
+txt_adc_blue_champion_ward.close()
+txt_adc_blue_champion_ward_r = open("txt_adc_blue_champion_ward", "r")
+txt_adc_blue_champion_ward_r_text = txt_adc_blue_champion_ward.read()
+print("Placar de visão:", txt_adc_blue_champion_ward_r_text)
+
+
+# numero de jogos com o campeao  adc
+adc_blue_gamesplayed_champion = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
+txt_adc_blue_gamesplayed_champion = open(
+    "adc_blue_gamesplayed_champion.txt", "w")
+txt_adc_blue_gamesplayed_champion.write(adc_blue_gamesplayed_champion.text)
+txt_adc_blue_gamesplayed_champion.close()
+txt_adc_blue_gamesplayed_champion_r = open(
+    "adc_blue_gamesplayed_champion.txt", "r")
+txt_adc_blue_gamesplayed_champion_r_text = txt_adc_blue_gamesplayed_champion_r.read()
+print("Nome de jogos com o campeão:", txt_adc_blue_gamesplayed_champion_r_text)
+
 
 # SUP leaguegraphs:
 
 leaguegraph_main_profile_stats = "https://www.leagueofgraphs.com/pt/summoner/champions/"
 print("Coletando informações de", txt_sup_blue_nick_store_text_r)
-sup_lane = "/adc"  # aqui estão identificadas as lanes
+sup_lane = "/support"  # aqui estão identificadas as lanes
 sup_blue_leaguegraph_profile = leaguegraph_main_profile_stats + \
     sup_blue_champion.lower() + "/" + "br/" + txt_sup_blue_nick_store_text_r + sup_lane
 driver.get(sup_blue_leaguegraph_profile)
-time.sleep(5)
+time.sleep(10)
 try:
     player_gamesjogados_month = driver.find_element_by_xpath(
         '//*[@id="graphDD54"]')
@@ -873,9 +1076,62 @@ try:
         "txt_sup_blue_tfp_champion_month.txt", "r")
     txt_sup_blue_tfp_champion_month_r_text = txt_sup_blue_tfp_champion_month_r.read()
     print("Taxa de participação em TFs", txt_sup_blue_tfp_champion_month_r_text)
-
 except:
     pass
+
+    # SUP Blue - Mobalytics
+mobalytics_main_profile_stats = "https://app.mobalytics.gg/lol/profile/br/"
+sup_blue_mobalytics_profile = mobalytics_main_profile_stats + \
+    txt_sup_blue_nick_store_text_r + "/" + "champions?champion=" + sup_blue_champion
+driver.get(sup_blue_mobalytics_profile)
+time.sleep(15)
+
+
+# winrate season sup blue
+sup_blue_champion_alltime_wr = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[4]/div/div[3]')
+txt_sup_blue_champion_alltime_wr = open(
+    "sup_blue_champion_alltime_wr.txt", "w")
+txt_sup_blue_champion_alltime_wr.write(sup_blue_champion_alltime_wr.text)
+txt_sup_blue_champion_alltime_wr.close()
+txt_sup_blue_champion_alltime_wr_r = open(
+    "sup_blue_champion_alltime_wr.txt", "r")
+txt_sup_blue_champion_alltime_wr_r_text = txt_sup_blue_champion_alltime_wr.read()
+print("winrate:", txt_sup_blue_champion_alltime_wr_r)
+
+
+# sup blue kda season
+sup_blue_champion_kda = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[5]')
+txt_sup_blue_champion_kda = open("sup_blue_champion_kda.txt", "w")
+txt_sup_blue_champion_kda.write(sup_blue_champion_kda.text)
+txt_sup_blue_champion_kda.close()
+txt_sup_blue_champion_kda_r = open("sup_blue_champion_kda.txt", "r")
+txt_sup_blue_champion_kda_r_text = txt_sup_blue_champion_kda.read()
+print("Kda da season:", txt_sup_blue_champion_kda_r)
+
+# vision score - sup
+sup_blue_champion_ward = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
+txt_sup_blue_champion_ward = open("txt_sup_blue_champion_ward", "w")
+txt_sup_blue_champion_ward.write(sup_blue_champion_ward.text)
+txt_sup_blue_champion_ward.close()
+txt_sup_blue_champion_ward_r = open("txt_sup_blue_champion_ward", "r")
+txt_sup_blue_champion_ward_r_text = txt_sup_blue_champion_ward.read()
+print("Placar de visão:", txt_sup_blue_champion_ward_r)
+
+
+# numero de jogos com o campeao  sup
+sup_blue_gamesplayed_champion = driver.find_element_by_xpath(
+    '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[3]')
+txt_sup_blue_gamesplayed_champion = open(
+    "sup_blue_gamesplayed_champion.txt", "w")
+txt_sup_blue_gamesplayed_champion.write(sup_blue_gamesplayed_champion.text)
+txt_sup_blue_gamesplayed_champion.close()
+txt_sup_blue_gamesplayed_champion_r = open(
+    "sup_blue_gamesplayed_champion.txt", "r")
+txt_sup_blue_gamesplayed_champion_r_text = txt_sup_blue_gamesplayed_champion_r.read()
+print("Jogos com o campeão:", txt_sup_blue_gamesplayed_champion_r_text)
 
 
 def showinfo():  # mostrar jogadores e campeoes
