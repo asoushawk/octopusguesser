@@ -587,7 +587,7 @@ try:
     txt_top_blue_rota_gamesjogados_month.close()
     txt_top_blue_rota_gamesjogados_month_r = open(
         "top_blue_rota_gamesjogados_month.txt", "r")
-    txt_top_blue_rota_gamesjogados_month_text_r = txt_top_blue_gamesjogados_month_r.read()
+    txt_top_blue_rota_gamesjogados_month_text_r = txt_top_blue_rota_gamesjogados_month_r.read()
     print("Jogos na rota", top_lane,
           "nos últimos 30 dias:", txt_top_blue_rota_gamesjogados_month_text_r)
 
@@ -811,7 +811,7 @@ try:
     txt_jg_blue_rota_gamesjogados_month.close()
     txt_jg_blue_rota_gamesjogados_month_r = open(
         "jg_blue_rota_gamesjogados_month.txt", "r")
-    txt_jg_blue_rota_gamesjogados_month_text_r = txt_jg_blue_gamesjogados_month_r.read()
+    txt_jg_blue_rota_gamesjogados_month_text_r = txt_jg_blue_rota_gamesjogados_month_r.read()
     print("Jogos na rota", jg_lane,
           "nos últimos 30 dias:", txt_jg_blue_rota_gamesjogados_month_text_r)
 
@@ -1022,7 +1022,7 @@ try:
     txt_mid_blue_rota_gamesjogados_month.close()
     txt_mid_blue_rota_gamesjogados_month_r = open(
         "mid_blue_rota_gamesjogados_month.txt", "r")
-    txt_mid_blue_rota_gamesjogados_month_text_r = txt_mid_blue_gamesjogados_month_r.read()
+    txt_mid_blue_rota_gamesjogados_month_text_r = txt_mid_blue_rota_gamesjogados_month_r.read()
     print("Jogos na rota", mid_lane,
           "nos últimos 30 dias:", txt_mid_blue_rota_gamesjogados_month_text_r)
 
@@ -1231,7 +1231,7 @@ try:
     txt_adc_blue_rota_gamesjogados_month.close()
     txt_adc_blue_rota_gamesjogados_month_r = open(
         "adc_blue_rota_gamesjogados_month.txt", "r")
-    txt_adc_blue_rota_gamesjogados_month_text_r = txt_adc_blue_gamesjogados_month_r.read()
+    txt_adc_blue_rota_gamesjogados_month_text_r = txt_adc_blue_rota_gamesjogados_month_r.read()
     print("Jogos na rota", adc_lane,
           "nos últimos 30 dias:", txt_adc_blue_rota_gamesjogados_month_text_r)
 
@@ -1442,7 +1442,7 @@ try:
     txt_sup_blue_rota_gamesjogados_month.close()
     txt_sup_blue_rota_gamesjogados_month_r = open(
         "sup_blue_rota_gamesjogados_month.txt", "r")
-    txt_sup_blue_rota_gamesjogados_month_text_r = txt_sup_blue_gamesjogados_month_r.read()
+    txt_sup_blue_rota_gamesjogados_month_text_r = txt_sup_blue_rota_gamesjogados_month_r.read()
     print("Jogos na rota", sup_lane,
           "nos últimos 30 dias:", txt_sup_blue_rota_gamesjogados_month_text_r)
 
@@ -1674,7 +1674,7 @@ try:
     txt_top_red_rota_gamesjogados_month.close()
     txt_top_red_rota_gamesjogados_month_r = open(
         "top_red_rota_gamesjogados_month.txt", "r")
-    txt_top_red_rota_gamesjogados_month_text_r = txt_top_red_gamesjogados_month_r.read()
+    txt_top_red_rota_gamesjogados_month_text_r = txt_top_red_rota_gamesjogados_month_r.read()
     print("Jogos na rota", top_lane,
           "nos últimos 30 dias:", txt_top_red_rota_gamesjogados_month_text_r)
 
@@ -1700,7 +1700,7 @@ try:
         player_tfwr_champion_month.text)
     txt_top_red_rota_tfwr_champion_month.close()
     txt_top_red_rota_tfwr_champion_month_r = open(
-        "txt_top_rota_red_tfwr_champion_month.txt", "r")
+        "txt_top_red_rota_tfwr_champion_month.txt", "r")
     txt_top_red_rota_tfwr_champion_month_text_r = txt_top_red_rota_tfwr_champion_month_r.read()
     print("Taxa de Vitória de Team Fights",
           txt_top_red_rota_tfwr_champion_month_text_r)
@@ -1898,7 +1898,7 @@ try:
     txt_jg_red_rota_gamesjogados_month.close()
     txt_jg_red_rota_gamesjogados_month_r = open(
         "jg_red_rota_gamesjogados_month.txt", "r")
-    txt_jg_red_rota_gamesjogados_month_text_r = txt_jg_red_gamesjogados_month_r.read()
+    txt_jg_red_rota_gamesjogados_month_text_r = txt_jg_red_rota_gamesjogados_month_r.read()
     print("Jogos na rota", jg_lane,
           "nos últimos 30 dias:", txt_jg_red_rota_gamesjogados_month_text_r)
 
@@ -2109,7 +2109,7 @@ try:
     txt_mid_red_rota_gamesjogados_month.close()
     txt_mid_red_rota_gamesjogados_month_r = open(
         "mid_red_rota_gamesjogados_month.txt", "r")
-    txt_mid_red_rota_gamesjogados_month_text_r = txt_mid_red_gamesjogados_month_r.read()
+    txt_mid_red_rota_gamesjogados_month_text_r = txt_mid_red_rota_gamesjogados_month_r.read()
     print("Jogos na rota", mid_lane,
           "nos últimos 30 dias:", txt_mid_red_rota_gamesjogados_month_text_r)
 
@@ -2318,7 +2318,7 @@ try:
     txt_adc_red_rota_gamesjogados_month.close()
     txt_adc_red_rota_gamesjogados_month_r = open(
         "adc_red_rota_gamesjogados_month.txt", "r")
-    txt_adc_red_rota_gamesjogados_month_text_r = txt_adc_red_gamesjogados_month_r.read()
+    txt_adc_red_rota_gamesjogados_month_text_r = txt_adc_red_rota_gamesjogados_month_r.read()
     print("Jogos na rota", adc_lane,
           "nos últimos 30 dias:", txt_adc_red_rota_gamesjogados_month_text_r)
 
@@ -2525,7 +2525,7 @@ try:
     txt_sup_red_rota_gamesjogados_month.close()
     txt_sup_red_rota_gamesjogados_month_r = open(
         "sup_red_rota_gamesjogados_month.txt", "r")
-    txt_sup_red_rota_gamesjogados_month_text_r = txt_sup_red_gamesjogados_month_r.read()
+    txt_sup_red_rota_gamesjogados_month_text_r = txt_sup_red_rota_gamesjogados_month_r.read()
     print("Jogos na rota", sup_lane,
           "nos últimos 30 dias:", txt_sup_red_rota_gamesjogados_month_text_r)
 
