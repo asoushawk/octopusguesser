@@ -1,31 +1,13 @@
+import csv
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 import time
 import mysql.connector
 from datetime import date, datetime, timedelta
-#connection to mysql server
-cnx = mysql.connector.connect(user='sql10380326', password='fNNmKU1TUt', host='sql10.freemysqlhosting.net', database='sql10380326')
-cursor = cnx.cursor()
+import os
 
-def connecttomysql():
-    name = input()
-    set_target_user = ("INSERT INTO target_user "
-               "(name) "
-               "VALUES (%(name)s)")   
-
-    data_user = {
-      'name': name, 
-    }   
-    
-    cursor.execute(set_target_user, data_user)
-
-    
-    cnx.commit()
-    
-    cursor.close()
-    cnx.close()    
-     
+os.chdir(r'C:/xampp/htdocs/PogDotGG')
 
 
 #collectin data
@@ -54,12 +36,6 @@ def colectdata():
     }    
         
         
-        
-        
-        
-        
-        
-
     
     driver = webdriver.Chrome(executable_path=r'C:\Program Files (x86)\chromedriver.exe', options=options)
 
@@ -789,7 +765,7 @@ def colectdata():
         # vision score
         top_red_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_top_red_champion_ward = open("txt_top_red_champion_ward", "w")
+        txt_top_red_champion_ward = open("txt_top_red_champion_ward.txt", "w")
         txt_top_red_champion_ward.write(top_red_champion_ward.text)
         txt_top_red_champion_ward.close()
         txt_top_red_champion_ward_r = open("txt_top_red_champion_ward", "r")
@@ -1009,7 +985,7 @@ def colectdata():
         # vision score -JG
         jg_red_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_jg_red_champion_ward = open("txt_jg_red_champion_ward", "w")
+        txt_jg_red_champion_ward = open("txt_jg_red_champion_ward.txt", "w")
         txt_jg_red_champion_ward.write(jg_red_champion_ward.text)
         txt_jg_red_champion_ward.close()
         txt_jg_red_champion_ward_r = open("txt_jg_red_champion_ward", "r")
@@ -1217,7 +1193,7 @@ def colectdata():
         # vision score
         mid_red_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_mid_red_champion_ward = open("txt_mid_red_champion_ward", "w")
+        txt_mid_red_champion_ward = open("txt_mid_red_champion_ward.txt", "w")
         txt_mid_red_champion_ward.write(mid_red_champion_ward.text)
         txt_mid_red_champion_ward.close()
         txt_mid_red_champion_ward_r = open("txt_mid_red_champion_ward", "r")
@@ -1422,7 +1398,7 @@ def colectdata():
         # vision score - ADc
         adc_red_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_adc_red_champion_ward = open("txt_adc_red_champion_ward", "w")
+        txt_adc_red_champion_ward = open("txt_adc_red_champion_ward.txt", "w")
         txt_adc_red_champion_ward.write(adc_red_champion_ward.text)
         txt_adc_red_champion_ward.close()
         txt_adc_red_champion_ward_r = open("txt_adc_red_champion_ward", "r")
@@ -1634,7 +1610,7 @@ def colectdata():
       # vision score - sup
       sup_red_champion_ward = driver.find_element_by_xpath(
           '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-      txt_sup_red_champion_ward = open("txt_sup_red_champion_ward", "w")
+      txt_sup_red_champion_ward = open("txt_sup_red_champion_ward.txt", "w")
       txt_sup_red_champion_ward.write(sup_red_champion_ward.text)
       txt_sup_red_champion_ward.close()
       txt_sup_red_champion_ward_r = open("txt_sup_red_champion_ward", "r")
@@ -1848,7 +1824,7 @@ def colectdata():
         # vision score
         top_blue_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_top_blue_champion_ward = open("txt_top_blue_champion_ward", "w")
+        txt_top_blue_champion_ward = open("txt_top_blue_champion_ward.txt", "w")
         txt_top_blue_champion_ward.write(top_blue_champion_ward.text)
         txt_top_blue_champion_ward.close()
         txt_top_blue_champion_ward_r = open("txt_top_blue_champion_ward", "r")
@@ -2063,7 +2039,7 @@ def colectdata():
         # vision score -JG
         jg_blue_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_jg_blue_champion_ward = open("txt_jg_blue_champion_ward", "w")
+        txt_jg_blue_champion_ward = open("txt_jg_blue_champion_ward.txt", "w")
         txt_jg_blue_champion_ward.write(jg_blue_champion_ward.text)
         txt_jg_blue_champion_ward.close()
         txt_jg_blue_champion_ward_r = open("txt_jg_blue_champion_ward", "r")
@@ -2272,7 +2248,7 @@ def colectdata():
         # vision score
         mid_blue_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_mid_blue_champion_ward = open("txt_mid_blue_champion_ward", "w")
+        txt_mid_blue_champion_ward = open("txt_mid_blue_champion_ward.txt", "w")
         txt_mid_blue_champion_ward.write(mid_blue_champion_ward.text)
         txt_mid_blue_champion_ward.close()
         txt_mid_blue_champion_ward_r = open("txt_mid_blue_champion_ward", "r")
@@ -2480,7 +2456,7 @@ def colectdata():
         # vision score - ADc
         adc_blue_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_adc_blue_champion_ward = open("txt_adc_blue_champion_ward", "w")
+        txt_adc_blue_champion_ward = open("txt_adc_blue_champion_ward.txt", "w")
         txt_adc_blue_champion_ward.write(adc_blue_champion_ward.text)
         txt_adc_blue_champion_ward.close()
         txt_adc_blue_champion_ward_r = open("txt_adc_blue_champion_ward", "r")
@@ -2688,7 +2664,7 @@ def colectdata():
         # vision score - sup
         sup_blue_champion_ward = driver.find_element_by_xpath(
             '//*[@id="app-content"]/div[1]/div[4]/div[2]/div/div[3]/div/div[2]/div[2]/div[7]')
-        txt_sup_blue_champion_ward = open("txt_sup_blue_champion_ward", "w")
+        txt_sup_blue_champion_ward = open("txt_sup_blue_champion_ward.txt", "w")
         txt_sup_blue_champion_ward.write(sup_blue_champion_ward.text)
         txt_sup_blue_champion_ward.close()
         txt_sup_blue_champion_ward_r = open("txt_sup_blue_champion_ward", "r")
@@ -2723,12 +2699,8 @@ def colectdata():
 
 
        #variables for use
-def data():       
+ 
         p = -1
-
-        top_red1v1 = 0
-        top_blue1v1 = 0
-        
         
         
         #champion name top
@@ -2739,8 +2711,6 @@ def data():
         txt_top_blue_champion_store_r = open("top_blue_champion.txt", "r")
         txt_top_blue_champion_store_text_r = txt_top_blue_champion_store_r.read()
 
-
-        print(txt_top_red_champion_store_text_r, "vs", txt_top_blue_champion_store_text_r)
 
 
       #Opens month champion winrate
@@ -3468,14 +3438,818 @@ def data():
         else:
             print("Provavel vencedor do sup:",  txt_sup_blue_champion_store_text_r)
         
-            
-            
+          
+        
+        
+           
+        
+def training():
+    #we will treat data from every lane, strip the percentages, and etc:  
+    
+
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_top_red_champion_store_r = open("top_red_champion.txt", "r") #toplane_red championname
+     txt_top_red_champion_store_text_r = txt_top_red_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_top_red_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_red_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_top_red_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_red_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_top_red_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_red_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("top_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_red_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("top_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_red_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("mid_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       top_red_champion_kda = kills + assists / deaths
+       print(top_red_champion_kda)
+     
+     except:
+      top_red_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0
+
+  
+     #TOP BLUE
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_top_blue_champion_store_r = open("top_blue_champion.txt", "r") #toplane_blue championname
+     txt_top_blue_champion_store_text_r = txt_top_blue_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_top_blue_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_blue_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_top_blue_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_blue_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_top_blue_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_blue_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("top_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_blue_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("top_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     top_blue_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("mid_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       top_blue_champion_kda = kills + assists / deaths
+       print(top_blue_champion_kda)
+     
+     except:
+      top_blue_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0      
+
+
+      
+    
+     #JG RED
+     
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_jg_red_champion_store_r = open("jg_red_champion.txt", "r") #jglane_red championname
+     txt_jg_red_champion_store_text_r = txt_jg_red_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_jg_red_champion_ward.txt", "r")
+     readfile = openfile.read() 
+     strip = readfile.strip('%')
+     jg_red_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_jg_red_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_red_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_jg_red_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_red_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("jg_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_red_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("jg_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_red_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("mid_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       jg_red_champion_kda = kills + assists / deaths
+       print(jg_red_champion_kda)
+     
+     except:
+      jg_red_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0
+
+    
+
+     #JG BLUE  
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_jg_blue_champion_store_r = open("jg_blue_champion.txt", "r") #jglane_blue championname
+     txt_jg_blue_champion_store_text_r = txt_jg_blue_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_jg_blue_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_blue_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_jg_blue_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_blue_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_jg_blue_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_blue_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("jg_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_blue_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("jg_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     jg_blue_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("mid_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       jg_blue_champion_kda = kills + assists / deaths
+       print(jg_blue_champion_kda)
+     
+     except:
+      jg_blue_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0   
+    
+
+
+    #MID RED
+    
+
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_mid_red_champion_store_r = open("mid_red_champion.txt", "r") #midlane_red championname
+     txt_mid_red_champion_store_text_r = txt_mid_red_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_mid_red_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_red_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_mid_red_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_red_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_mid_red_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_red_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("mid_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_red_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("mid_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_red_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("mid_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       mid_red_champion_kda = kills + assists / deaths
+       print(mid_red_champion_kda)
+     
+     except:
+      mid_red_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0         
+    
+    
+     
+     #MID BLUE
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_mid_blue_champion_store_r = open("mid_blue_champion.txt", "r") #midlane_blue championname
+     txt_mid_blue_champion_store_text_r = txt_mid_blue_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_mid_blue_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_blue_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_mid_blue_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_blue_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_mid_blue_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_blue_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("mid_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_blue_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("mid_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     mid_blue_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("mid_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       mid_blue_champion_kda = kills + assists / deaths
+       print(mid_blue_champion_kda)
+     
+     except:
+      mid_blue_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0
+
+    
+    
+
+    #ADC RED
+    
+
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_adc_red_champion_store_r = open("adc_red_champion.txt", "r") #adclane_red championname
+     txt_adc_red_champion_store_text_r = txt_adc_red_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_adc_red_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_red_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_adc_red_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_red_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_adc_red_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_red_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("adc_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_red_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("adc_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_red_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("adc_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       adc_red_champion_kda = kills + assists / deaths
+       print(adc_red_champion_kda)
+     
+     except:
+      adc_red_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0    
+    
+    
+
+    
+    #ADC_BLUE
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_adc_blue_champion_store_r = open("adc_blue_champion.txt", "r") #adclane_blue championname
+     txt_adc_blue_champion_store_text_r = txt_adc_blue_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_adc_blue_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_blue_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_adc_blue_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_blue_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_adc_blue_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_blue_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("adc_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_blue_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("adc_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     adc_blue_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("adc_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       adc_blue_champion_kda = kills + assists / deaths
+       print(adc_blue_champion_kda)
+     
+     except:
+      adc_blue_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0
+
+    
+
+     #SUP BLUE
+
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_sup_blue_champion_store_r = open("sup_blue_champion.txt", "r") #suplane_blue championname
+     txt_sup_blue_champion_store_text_r = txt_sup_blue_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_sup_blue_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_blue_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_sup_blue_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_blue_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_sup_blue_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_blue_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("sup_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_blue_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("sup_blue_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_blue_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("sup_blue_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       sup_blue_champion_kda = kills + assists / deaths
+       print(sup_blue_champion_kda)
+     
+     except:
+      sup_blue_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0    
+    
+    
+
+
+     #SUP_RED
+    
+
+
+    #we have scripts for opening the archives, and treating the text, we have to make it float, eversince it comes as string, and remove the %
+     txt_sup_red_champion_store_r = open("sup_red_champion.txt", "r") #suplane_red championname
+     txt_sup_red_champion_store_text_r = txt_sup_red_champion_store_r.read()
+     
+     
+    
+     #vision score
+     openfile = open("txt_sup_red_champion_ward.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_red_champion_ward = float(strip)
+     
+     #vwinrate lane with champion, month
+     openfile = open("txt_sup_red_rota_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_red_rota_champion_month = float(strip)
+
+     #vwinrate with champion, month
+     openfile = open("txt_sup_red_wr_champion_month.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_red_wr_champion_month = float(strip)
+
+     #winrate all time with champion
+     openfile = open("sup_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_red_champion_alltime_wr = float(strip) 
+    
+    #winrate all time with champion
+     openfile = open("sup_red_champion_alltime_wr.txt", "r")
+     readfile = openfile.read()
+     strip = readfile.strip('%')
+     sup_red_champion_alltime_wr = float(strip)  
+
+    #reads kda
+
+
+     try:
+       openfile = open("sup_red_champion_kda.txt", "r") #opens the archive, but still need to separate the pieces of the kda
+       readfile = openfile.read()
+       makelist = list(readfile) #we make it a list  
+       strip = (makelist[0] + makelist[2]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       kills = (turnfloat / 10)#and divide by 10
+       print(kills)  
+     
+     
+       #deaths
+       strip = (makelist[6] + makelist[8]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       deaths = (turnfloat / 10)#and divide by 10
+       print(deaths)
+       
+       
+       #assists
+       strip = (makelist[12] + makelist[14]) #we take specific parts of the list
+       turnfloat = float(strip)#turn then into float
+       assists = (turnfloat / 10)#and divide by 10
+       print(assists)
+       
+       sup_red_champion_kda = kills + assists / deaths
+       print(sup_red_champion_kda)
+     
+     except:
+      sup_red_champion_kda = "0.0" #thats for if the person neverplayed the champion it will define the kda as 0
+    
+    
+
+    
+
+
+     
+
+    
         
 
-        
-colectdata()
-data()
-            
+    #where everything comes together!! here we will write the data on the csv file
+     def writecsv1():
+    #writing the data in a csv file
+      with open('database.csv', 'w', newline='') as file:
+       writer = csv.writer(file)          
+       writer.writerow(["top_red_champion", "top_red_champion_ward", "top_red_rota_champion_month", "top_red_champion_alltime_wr","top_red_champion_kda", 
+       "top_blue_champion", "top_blue_champion_ward", "top_blue_rota_champion_month", "top_blue_champion_alltime_wr","top_blue_champion_kda", 
+       "jg_red_champion", "jg_red_champion_ward", "jg_red_rota_champion_month", "jg_red_champion_alltime_wr","jg_red_champion_kda", 
+       "jg_blue_champion", "jg_blue_champion_ward", "jg_blue_rota_champion_month", "jg_blue_champion_alltime_wr","jg_blue_champion_kda", 
+       "mid_red_champion", "mid_red_champion_ward", "mid_red_rota_champion_month", "mid_red_champion_alltime_wr","mid_red_champion_kda", 
+       "mid_blue_champion", "mid_blue_champion_ward", "mid_blue_rota_champion_month", "mid_blue_champion_alltime_wr","mid_blue_champion_kda",
+       "adc_red_champion", "adc_red_champion_ward", "adc_red_rota_champion_month", "adc_red_champion_alltime_wr","adc_red_champion_kda",
+       "adc_blue_champion", "adc_blue_champion_ward", "adc_blue_rota_champion_month", "adc_blue_champion_alltime_wr","adc_blue_champion_kda",
+       "sup_red_champion", "sup_red_champion_ward", "sup_red_rota_champion_month", "sup_red_champion_alltime_wr","sup_red_champion_kda",
+       "sup_blue_champion", "sup_blue_champion_ward", "sup_blue_rota_champion_month", "sup_blue_champion_alltime_wr","sup_blue_champion_kda"])
+       writer.writerow([txt_top_red_champion_store_text_r, top_red_champion_ward, top_red_rota_champion_month, top_red_champion_alltime_wr,top_red_champion_kda,
+        txt_top_blue_champion_store_text_r, top_blue_champion_ward, top_blue_rota_champion_month, top_blue_champion_alltime_wr,top_blue_champion_kda, 
+        txt_jg_red_champion_store_text_r, jg_red_champion_ward, jg_red_rota_champion_month, jg_red_champion_alltime_wr,jg_red_champion_kda, 
+        txt_jg_blue_champion_store_text_r, jg_blue_champion_ward, jg_blue_rota_champion_month, jg_blue_champion_alltime_wr,jg_blue_champion_kda, 
+        txt_mid_red_champion_store_text_r, mid_red_champion_ward, mid_red_rota_champion_month, mid_red_champion_alltime_wr,mid_red_champion_kda, 
+        txt_mid_blue_champion_store_text_r, mid_blue_champion_ward, mid_blue_rota_champion_month, mid_blue_champion_alltime_wr,mid_blue_champion_kda,
+        txt_adc_red_champion_store_text_r, adc_red_champion_ward, adc_red_rota_champion_month, adc_red_champion_alltime_wr,adc_red_champion_kda,
+        txt_adc_blue_champion_store_text_r, adc_blue_champion_ward, adc_blue_rota_champion_month, adc_blue_champion_alltime_wr,adc_blue_champion_kda,
+        txt_sup_red_champion_store_text_r, sup_red_champion_ward, sup_red_rota_champion_month, sup_red_champion_alltime_wr,sup_red_champion_kda,
+        txt_sup_blue_champion_store_text_r, sup_blue_champion_ward, sup_blue_rota_champion_month, sup_blue_champion_alltime_wr,sup_blue_champion_kda])
+
+
+
+
+
+     def writecsv2():
+        #writing the data in a csv file
+         with open('database.csv', 'a+', newline='') as file:
+          writer = csv.writer(file)          
+          writer.writerow([txt_top_red_champion_store_text_r, top_red_champion_ward, top_red_rota_champion_month, top_red_champion_alltime_wr,top_red_champion_kda,
+           txt_top_blue_champion_store_text_r, top_blue_champion_ward, top_blue_rota_champion_month, top_blue_champion_alltime_wr,top_blue_champion_kda, 
+           txt_jg_red_champion_store_text_r, jg_red_champion_ward, jg_red_rota_champion_month, jg_red_champion_alltime_wr,jg_red_champion_kda, 
+           txt_jg_blue_champion_store_text_r, jg_blue_champion_ward, jg_blue_rota_champion_month, jg_blue_champion_alltime_wr,jg_blue_champion_kda, 
+           txt_mid_red_champion_store_text_r, mid_red_champion_ward, mid_red_rota_champion_month, mid_red_champion_alltime_wr,mid_red_champion_kda, 
+           txt_mid_blue_champion_store_text_r, mid_blue_champion_ward, mid_blue_rota_champion_month, mid_blue_champion_alltime_wr,mid_blue_champion_kda,
+           txt_adc_red_champion_store_text_r, adc_red_champion_ward, adc_red_rota_champion_month, adc_red_champion_alltime_wr,adc_red_champion_kda,
+           txt_adc_blue_champion_store_text_r, adc_blue_champion_ward, adc_blue_rota_champion_month, adc_blue_champion_alltime_wr,adc_blue_champion_kda,
+           txt_sup_red_champion_store_text_r, sup_red_champion_ward, sup_red_rota_champion_month, sup_red_champion_alltime_wr,sup_red_champion_kda,
+           txt_sup_blue_champion_store_text_r, sup_blue_champion_ward, sup_blue_rota_champion_month, sup_blue_champion_alltime_wr,sup_blue_champion_kda])
+     writecsv1()
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+training()
+
+
                      
     
     
