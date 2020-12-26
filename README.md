@@ -2,6 +2,8 @@
 
 Esse projeto de ciência de dados visa tentar acertar o resultado final de uma partida de League of Legends.
 
+Baseado em Selenium para WebScraping e Tensorflow para o Machinelearning. 
+
 Esse projeto consiste de 3 arquivos principais:
 
 1. datacrawler.ipynb: 
